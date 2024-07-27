@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Email Signatures Extraction{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div>Home: <a href="/index">Home</a></div>
+    <hr>
+    {% block content %}{% endblock %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <hr>
+    <h3>Results</h3>
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+
+</html>
